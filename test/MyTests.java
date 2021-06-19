@@ -21,6 +21,7 @@ public class MyTests {
         stopMap.put(extension+"stop1.png", 1);
         stopMap.put(extension+"stop2.png", 1);
         stopMap.put(extension+"stop3.png", 1);
+        stopMap.put(extension+"stop4.png", 1);
     }
 
     @Test
@@ -28,7 +29,7 @@ public class MyTests {
         Iterator iterator = stopMap.entrySet().iterator();
         while (iterator.hasNext()) {
             Map.Entry<String, Integer> sign = (Map.Entry<String, Integer>)iterator.next();
-            int stopSigns = functions.StopSigns.findStopSign(sign.getKey(), true);
+            int stopSigns = functions.StopSigns.findStopSign(sign.getKey(), false);
             java.util.concurrent.TimeUnit.SECONDS.sleep(2);
             ImageManipulation.currentShowing.setVisible(false);
             ImageManipulation.currentShowing.dispose();
