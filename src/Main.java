@@ -1,9 +1,11 @@
 import org.opencv.core.Core;
-import org.opencv.core.CvType;
-import org.opencv.core.Mat;
+
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
-        Mat a = new Mat(5, 10, CvType.CV_64F);
+    public static void main(String[] args) throws IOException {
+        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        int foundSigns = functions.StopSigns.findStopSign("resources/stopsigns/stop1.png", true);
+        System.out.println(foundSigns);
     }
 }
