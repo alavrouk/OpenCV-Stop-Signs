@@ -2,7 +2,7 @@
 
 This is mainly me messing around with OpenCV. I don't think my methodology was fantastic, but I did not want to google anything. Instead, I wanted to learn what works and what doesn't work in image processing using trial and error.
 
-The unit test to run all of the stop sign images is a little buggy, I think this comes from the fact that I suck at JUn
+The unit test to run all of the stop sign images is a little buggy, I think this comes from the fact that I suck at JUnit
 
 There is a debugging flag for the findStopSigns() method. When it is set to true, the program outputs intermediate images. I did not want to put them all on the same JFrame because awt makes me really really sad. Without debugging disabled, the program outputs a JUnit with the original and the found stop sign outlined with a rectangle side by side.
 
