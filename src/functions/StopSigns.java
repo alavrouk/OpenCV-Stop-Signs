@@ -60,10 +60,13 @@ public class StopSigns {
          * Setting to black and white.
          * Matrix: step2.
          */
-        Imgproc.cvtColor(stopSign, stopSign, Imgproc.COLOR_RGBA2GRAY, 0);
+        Imgproc.cvtColor(stopSign, stopSign, Imgproc.COLOR_BGR2GRAY, 0);
         Imgproc.threshold(stopSign, stopSign, 177, 200, Imgproc.THRESH_BINARY);
         Mat step2 = new Mat();
+        Mat smoothed = new Mat();
+        Imgproc.Canny(stopSign, stopSign, 3, 9, 7);
         stopSign.copyTo(step2);
+
 
         /*
          * Finding contours and adding a bounding rectangle to original.
@@ -78,7 +81,7 @@ public class StopSigns {
             MatOfPoint2f cnt = new MatOfPoint2f();
             contour.convertTo(cnt, CvType.CV_32FC2);
             MatOfPoint2f temp = new MatOfPoint2f();
-            Imgproc.approxPolyDP(cnt, temp, 12, true);
+            Imgproc.approxPolyDP(cnt, temp, 20, true);
             MatOfPoint added = new MatOfPoint();
             temp.convertTo(added, CvType.CV_32S);
             poly.add(added);

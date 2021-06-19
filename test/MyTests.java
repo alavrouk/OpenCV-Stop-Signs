@@ -22,6 +22,7 @@ public class MyTests {
         stopMap.put(extension+"stop2.png", 1);
         stopMap.put(extension+"stop3.png", 1);
         stopMap.put(extension+"stop4.png", 1);
+        stopMap.put(extension + "stop5.png", 1);
     }
 
     @Test
@@ -34,6 +35,7 @@ public class MyTests {
             ImageManipulation.currentShowing.setVisible(false);
             ImageManipulation.currentShowing.dispose();
             assertEquals(sign.getValue().intValue(), stopSigns);
+            System.gc();
         }
     }
 }
